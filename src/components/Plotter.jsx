@@ -2,9 +2,8 @@ import ReactECharts from "echarts-for-react";
 import PlottingOptionsEditor from "./PlottingOptionsEditor";
 
 const Plotter = ({ data, options, independentKeys, dependentKeys, onIndependentKeyChange, onDependentKeyChange }) => {
-	console.log(independentKeys, dependentKeys);
-	const independentKey = independentKeys[options.independentName];
-	const dependentKey = dependentKeys[options.dependentName];
+	const independentKey = independentKeys[options.independentName].key;
+	const dependentKey = dependentKeys[options.dependentName].key;
 	const option = {
 		title: {
 			text: `${options.dependentName} against ${options.independentName}`,
@@ -29,12 +28,12 @@ const Plotter = ({ data, options, independentKeys, dependentKeys, onIndependentK
 		},
 		xAxis: [
 			{
-				type: "time",
+				type: independentKeys[options.independentName].type,
 			},
 		],
 		yAxis: [
 			{
-				type: "value",
+				type: dependentKeys[options.dependentName].type,
 			},
 		],
 		series: [

@@ -20,11 +20,14 @@ const Page = () => {
 		},
 	]);
 	const [plottingIndependentKeys, setPlottingIndependentKeys] = useState({
-		Time: "time",
+		Time: {
+			key: "time",
+			type: "time",
+		},
 	});
 	const [plottingDependentKeys, setPlottingDependentKeys] = useState({
-		CO2: "val",
-		"Another Metric": "val2",
+		CO2: { key: "val", type: "value" },
+		"Another Metric": { key: "val2", type: "log" },
 	});
 	const [plottingOptions, setPlottingOptions] = useState({
 		independentName: "Time",
