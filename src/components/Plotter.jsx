@@ -6,7 +6,7 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 	const dependentKey = keys[options.dependentName].key;
 	const option = {
 		title: {
-			// text: `${options.dependentName} against ${options.independentName}`,
+			text: `${options.dependentName} against ${options.independentName}`,
 		},
 		tooltip: {
 			trigger: "axis",
@@ -20,10 +20,13 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 			},
 		},
 		grid: {
-			left: "50",
-			right: "50",
-			bottom: "50",
-			//   containLabel: true
+			left: "10",
+			right: "25",
+			bottom: "10",
+			top: "50",
+			// width: "100%",
+			// height: "100%",
+			  containLabel: true,
 			show: true,
 		},
 		xAxis: [
@@ -38,7 +41,7 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 		],
 		series: [
 			{
-				// name: options.dependentName,
+				name: options.dependentName,
 				type: "line",
 				// stack: '总量',
 				// areaStyle: {normal: {}},
@@ -47,16 +50,18 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 		],
 	};
 	return (
-		<>
-			<PlottingOptionsEditor
-				keys={keys}
-				onIndependentKeyChange={onIndependentKeyChange}
-				onDependentKeyChange={onDependentKeyChange}
-				options={options}
-			/>
-			<ReactECharts option={option} />
-		</>
+		<div style={plotterStyle}>
+			<PlottingOptionsEditor keys={keys} onIndependentKeyChange={onIndependentKeyChange} onDependentKeyChange={onDependentKeyChange} options={options} />
+			<ReactECharts style={{flex: "1 1 auto", margin: "1rem"}} option={option} />
+		</div>
 	);
+};
+
+const plotterStyle = {
+	display: "flex",
+	width: "100%",
+	height: "100%",
+	flexFlow: "column",
 };
 
 export default Plotter;

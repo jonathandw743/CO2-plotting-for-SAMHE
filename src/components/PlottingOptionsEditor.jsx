@@ -1,6 +1,6 @@
 const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyChange, options }) => {
 	return (
-		<>
+		<div style={plottingOptionsEditorStyle}>
 			<label>Independent (X-axis)</label>
 			<select
 				onChange={(event) => {
@@ -12,6 +12,7 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 					<option value={name}>{name}</option>
 				))}
 			</select>
+			<br />
 			<label>Dependent (Y-axis)</label>
 			<select
 				onChange={(event) => {
@@ -23,8 +24,13 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 					<option value={name}>{name}</option>
 				))}
 			</select>
-		</>
+		</div>
 	);
+};
+
+const plottingOptionsEditorStyle = {
+	margin: "1rem",
+	flex: "0 1 auto",
 };
 
 export default PlottingOptionsEditor;

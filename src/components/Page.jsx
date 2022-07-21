@@ -24,8 +24,14 @@ const Page = () => {
 			key: "time",
 			type: "time",
 		},
-		CO2: { key: "val", type: "value" },
-		"Another Metric": { key: "val2", type: "log" },
+		CO2: {
+			key: "val",
+			type: "value",
+		},
+		"Another Metric": {
+			key: "val2",
+			type: "log",
+		},
 	});
 	const [plottingOptions, setPlottingOptions] = useState({
 		independentName: "Time",
@@ -38,13 +44,15 @@ const Page = () => {
 		setPlottingOptions({ ...plottingOptions, dependentName: name });
 	};
 	return (
-		<Plotter
-			data={plottingData}
-			options={plottingOptions}
-			keys={plottingKeys}
-			onIndependentKeyChange={onPlottingIndependentKeyChange}
-			onDependentKeyChange={onPlottingDependentKeyChange}
-		/>
+		<div style={{ width: "100%", height: "100vh"}}>
+			<Plotter
+				data={plottingData}
+				options={plottingOptions}
+				keys={plottingKeys}
+				onIndependentKeyChange={onPlottingIndependentKeyChange}
+				onDependentKeyChange={onPlottingDependentKeyChange}
+			/>
+		</div>
 	);
 };
 
