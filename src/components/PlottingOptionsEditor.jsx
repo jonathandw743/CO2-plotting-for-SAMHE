@@ -24,6 +24,8 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 					<option value={name}>{name}</option>
 				))}
 			</select>
+			<br />
+			{options.independentName == options.dependentName ? "You are plotting a variable against itself, are you sure?" : ""}
 		</div>
 	);
 };
