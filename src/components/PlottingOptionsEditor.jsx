@@ -32,6 +32,7 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 
 const plottingOptionsEditorStyle = {
 	margin: "1rem",
+	marginBottom: "0",
 	flex: "0 1 auto",
 };
 
