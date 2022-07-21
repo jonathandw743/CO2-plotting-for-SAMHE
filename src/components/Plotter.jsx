@@ -26,7 +26,7 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 			top: "50",
 			// width: "100%",
 			// height: "100%",
-			  containLabel: true,
+			containLabel: true,
 			show: true,
 		},
 		xAxis: [
@@ -51,7 +51,13 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 	return (
 		<div style={plotterStyle}>
 			<PlottingOptionsEditor keys={keys} onIndependentKeyChange={onIndependentKeyChange} onDependentKeyChange={onDependentKeyChange} options={options} />
-			<ReactECharts style={{flex: "1 1 auto", margin: "1rem"}} option={option} />
+			<ReactECharts
+				style={{
+					flex: "1 1 auto",
+					margin: "1rem",
+				}}
+				option={option}
+			/>
 		</div>
 	);
 };

@@ -47,7 +47,7 @@ const Page = () => {
 		setPlottingOptions({ ...plottingOptions, dependentName: name });
 	};
 	return (
-		<div style={{ width: "100%", height: "100vh"}}>
+		<div style={{ width: "100%", height: "100vh" }}>
 			<Plotter
 				data={plottingData}
 				options={plottingOptions}
