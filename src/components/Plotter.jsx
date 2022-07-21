@@ -1,12 +1,12 @@
 import ReactECharts from "echarts-for-react";
 import PlottingOptionsEditor from "./PlottingOptionsEditor";
 
-const Plotter = ({ data, options, independentKeys, dependentKeys, onIndependentKeyChange, onDependentKeyChange }) => {
-	const independentKey = independentKeys[options.independentName].key;
-	const dependentKey = dependentKeys[options.dependentName].key;
+const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyChange }) => {
+	const independentKey = keys[options.independentName].key;
+	const dependentKey = keys[options.dependentName].key;
 	const option = {
 		title: {
-			text: `${options.dependentName} against ${options.independentName}`,
+			// text: `${options.dependentName} against ${options.independentName}`,
 		},
 		tooltip: {
 			trigger: "axis",
@@ -28,17 +28,17 @@ const Plotter = ({ data, options, independentKeys, dependentKeys, onIndependentK
 		},
 		xAxis: [
 			{
-				type: independentKeys[options.independentName].type,
+				type: keys[options.independentName].type,
 			},
 		],
 		yAxis: [
 			{
-				type: dependentKeys[options.dependentName].type,
+				type: keys[options.dependentName].type,
 			},
 		],
 		series: [
 			{
-				name: options.dependentName,
+				// name: options.dependentName,
 				type: "line",
 				// stack: '总量',
 				// areaStyle: {normal: {}},
@@ -49,10 +49,10 @@ const Plotter = ({ data, options, independentKeys, dependentKeys, onIndependentK
 	return (
 		<>
 			<PlottingOptionsEditor
-				independentKeys={independentKeys}
-				dependentKeys={dependentKeys}
+				keys={keys}
 				onIndependentKeyChange={onIndependentKeyChange}
 				onDependentKeyChange={onDependentKeyChange}
+				options={options}
 			/>
 			<ReactECharts option={option} />
 		</>

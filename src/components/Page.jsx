@@ -19,13 +19,11 @@ const Page = () => {
 			val2: 4,
 		},
 	]);
-	const [plottingIndependentKeys, setPlottingIndependentKeys] = useState({
+	const [plottingKeys, setPlottingKeys] = useState({
 		Time: {
 			key: "time",
 			type: "time",
 		},
-	});
-	const [plottingDependentKeys, setPlottingDependentKeys] = useState({
 		CO2: { key: "val", type: "value" },
 		"Another Metric": { key: "val2", type: "log" },
 	});
@@ -43,8 +41,7 @@ const Page = () => {
 		<Plotter
 			data={plottingData}
 			options={plottingOptions}
-			independentKeys={plottingIndependentKeys}
-			dependentKeys={plottingDependentKeys}
+			keys={plottingKeys}
 			onIndependentKeyChange={onPlottingIndependentKeyChange}
 			onDependentKeyChange={onPlottingDependentKeyChange}
 		/>

@@ -1,23 +1,25 @@
-const PlottingOptionsEditor = ({ independentKeys, dependentKeys, onIndependentKeyChange, onDependentKeyChange }) => {
+const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyChange, options }) => {
 	return (
 		<>
 			<label>Independent (X-axis)</label>
 			<select
 				onChange={(event) => {
-          onIndependentKeyChange(event.target.value);
-        }}
+					onIndependentKeyChange(event.target.value);
+				}}
+				value={options.independentName}
 			>
-				{Object.keys(independentKeys).map((name) => (
+				{Object.keys(keys).map((name) => (
 					<option value={name}>{name}</option>
 				))}
 			</select>
 			<label>Dependent (Y-axis)</label>
 			<select
 				onChange={(event) => {
-          onDependentKeyChange(event.target.value);
-        }}
+					onDependentKeyChange(event.target.value);
+				}}
+				value={options.dependentName}
 			>
-				{Object.keys(dependentKeys).map((name) => (
+				{Object.keys(keys).map((name) => (
 					<option value={name}>{name}</option>
 				))}
 			</select>
