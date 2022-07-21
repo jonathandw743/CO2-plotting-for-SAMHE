@@ -21,14 +21,17 @@ const Page = () => {
 	]);
 	const [plottingKeys, setPlottingKeys] = useState({
 		Time: {
+			id: "0",
 			key: "time",
 			type: "time",
 		},
 		CO2: {
+			id: "1",
 			key: "val",
 			type: "value",
 		},
 		"Another Metric": {
+			id: "2",
 			key: "val2",
 			type: "log",
 		},

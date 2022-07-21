@@ -2,8 +2,8 @@ import ReactECharts from "echarts-for-react";
 import PlottingOptionsEditor from "./PlottingOptionsEditor";
 
 const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyChange }) => {
-	const independentKey = keys[options.independentName].key;
-	const dependentKey = keys[options.dependentName].key;
+	const independentVariable = keys[options.independentName];
+	const dependentVariable = keys[options.dependentName];
 	const option = {
 		title: {
 			text: `${options.dependentName} against ${options.independentName}`,
@@ -31,21 +31,20 @@ const Plotter = ({ data, options, keys, onIndependentKeyChange, onDependentKeyCh
 		},
 		xAxis: [
 			{
-				type: keys[options.independentName].type,
+				type: independentVariable.type,
 			},
 		],
 		yAxis: [
 			{
-				type: keys[options.dependentName].type,
+				type: dependentVariable.type,
 			},
 		],
 		series: [
 			{
 				name: options.dependentName,
 				type: "line",
-				// stack: '总量',
 				// areaStyle: {normal: {}},
-				data: data.map((dataPoint) => [dataPoint[independentKey], dataPoint[dependentKey]]),
+				data: data.map((dataPoint) => [dataPoint[independentVariable.key], dataPoint[dependentVariable.key]]),
 			},
 		],
 	};

@@ -9,7 +9,7 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 				value={options.independentName}
 			>
 				{Object.keys(keys).map((name) => (
-					<option value={name}>{name}</option>
+					<option key={keys[name].id} value={name}>{name}</option>
 				))}
 			</select>
 			<br />
@@ -21,7 +21,7 @@ const PlottingOptionsEditor = ({ keys, onIndependentKeyChange, onDependentKeyCha
 				value={options.dependentName}
 			>
 				{Object.keys(keys).map((name) => (
-					<option value={name}>{name}</option>
+					<option key={keys[name].id} value={name}>{name}</option>
 				))}
 			</select>
 			<br />
