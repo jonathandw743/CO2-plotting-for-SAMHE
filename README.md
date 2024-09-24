@@ -2,7 +2,7 @@
 
 This app displays an interactive graph, displaying displaying some sample data.
 
-## See a demo [https://jonathandw743.github.io/CO2-plotting-for-SAMHE/](here)!
+## See a demo [here](https://jonathandw743.github.io/CO2-plotting-for-SAMHE/)!
 
 ## Available Scripts
 
